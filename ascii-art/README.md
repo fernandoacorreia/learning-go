@@ -1,4 +1,4 @@
-# Gopher
+# ASCII art
 
 ## Description
 
@@ -9,5 +9,5 @@ Inspired by [Codecademy Learn Go - Gopher It](https://www.codecademy.com/courses
 ## Running
 
 ```
-bin/go run gopher/main.go
+bin/go run ascii-art/main.go
 ```
