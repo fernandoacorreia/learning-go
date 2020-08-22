@@ -2,20 +2,20 @@
 #
 # Runs Go.
 #
-set -o nounset -o errexit -o pipefail
+set -o nounset -o errexit -o pipefail                     # Abort the script on errors
 
-SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
-BASE_DIR=$(cd "$SCRIPT_DIR/.." && pwd)
-GO_VERSION="1.15-buster"
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)  # Absolute directory where this script is stored
+BASE_DIR=$(cd "$SCRIPT_DIR/.." && pwd)                    # Parent directory of this script
+GO_VERSION="1.15-buster"                                  # Docker image tag of the Go version that will be used
 
-mkdir -p "$BASE_DIR/.cache"
+mkdir -p "$BASE_DIR/.cache"                               # Create .cache directory under base directory
 
-docker run \
-  --rm \
-  -it \
-  -v "$BASE_DIR":"$BASE_DIR" \
-  -v "$BASE_DIR/.cache":/.cache \
-  -w "$BASE_DIR" \
-  --user $(id -u):$(id -g) \
-  golang:$GO_VERSION \
-  go $@
+docker run                       `# Run a Docker container                               ` \
+  --rm                           `# Remove the container when the command exits          ` \
+  -it                            `# Set an interactive terminal                          ` \
+  -v "$BASE_DIR":"$BASE_DIR"     `# Mount base directory with same name in the container ` \
+  -v "$BASE_DIR/.cache":/.cache  `# Mount .cache directory under the container's root    ` \
+  -w "$BASE_DIR"                 `# Set base directory as the current working directory  ` \
+  --user $(id -u):$(id -g)       `# Use same user ID inside the container as on the host ` \
+  golang:$GO_VERSION             `# Use Go's docker image with the specified tag         ` \
+  go $@                          `# Run go with the provided command line arguments      `

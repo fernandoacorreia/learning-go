@@ -8,6 +8,8 @@ Inspired by [Codecademy Learn Go - Gopher It](https://www.codecademy.com/courses
 
 ## Running
 
+From the base directory of the repository:
+
 ```
 bin/go run ascii-art/main.go
 ```
