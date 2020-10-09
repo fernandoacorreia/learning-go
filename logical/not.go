@@ -16,6 +16,6 @@ func main() {
   hungry := hungryCleaned == "y"
   notHungry := !hungry
 
-  fmt.Println("You are hungry: ", hungry)
-  fmt.Println("You are satisfied: ", notHungry)
+  fmt.Println("You are hungry:", hungry)
+  fmt.Println("You are satisfied:", notHungry)
 }
