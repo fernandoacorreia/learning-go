@@ -7,7 +7,8 @@ import (
 func main() {
   x := 0
   y := 0
-  for command := ""; command != "end"; {
+  endCommand := "end"
+  for command := ""; command != endCommand; {
     fmt.Print("Command? ")
     fmt.Scan(&command)
     switch command {
@@ -19,7 +20,7 @@ func main() {
       x -= 1
     case "right":
       x += 1
-    case "end":
+    case endCommand:
       fmt.Println("Exiting.")
     default:
       fmt.Printf("Invalid command: %v\n", command)
