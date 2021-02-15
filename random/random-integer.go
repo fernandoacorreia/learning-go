@@ -8,6 +8,8 @@ import (
 
 func main() {
   rand.Seed(time.Now().UnixNano())
-  i := rand.Int()
-  fmt.Println(i)
+  for i := 0; i < 3; i++ {
+    r := rand.Int()
+    fmt.Println(r)
+  }
 }
