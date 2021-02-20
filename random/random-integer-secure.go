@@ -15,6 +15,7 @@ func main() {
   }
 }
 
+// Based on John Leidegren's code at https://stackoverflow.com/a/54491783/376366
 func seedRandomizer() {
     var b [8]byte
     _, err := crypto_rand.Read(b[:])
