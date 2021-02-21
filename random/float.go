@@ -10,7 +10,7 @@ import (
 func main() {
   seedRandomizer()
   for i := 0; i < 3; i++ {
-    r := math_rand.Int()
+    r := math_rand.Float64()
     fmt.Println(r)
   }
 }
